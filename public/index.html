@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Portal Login</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="app.js" defer></script>
+</head>
+
+
+
+
+<div class="login-container">
+    <h1 style="color: #1f2937;
+            margin: 0;
+            font-size: 2rem;">🎯 MCQ Competition Portal</h1>
+            
+<p style=" color: #6b7280;
+            margin: 5px 0 0 0;">Secure Online Competition Platform</p>
+            <br>
+            
+            
+
+   <div class="role-container">
+        <label>👨‍🎓 Student<input type="radio" name="role" value="student" checked></label>
+        <label>👨‍💼 Administrator<input type="radio" name="role" value="admin"></label>
+    </div>
+
+<div style=" margin: 20px 0;
+            text-align: left;">
+  <label style="  display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;" for="username">Username:</label>
+  <input type="text" id="username" placeholder="Enter your username" required>
+
+  <br>
+  
+  
+
+  <label style="  display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;" for="password">Password:</label>
+  <input type="password" id="password" placeholder="Enter your password" required>
+<br>
+
+
+
+
+
+  <button type="submit" id="loginBtn">🚀 Login to Portal</button>
+
+  <div class="loading" id="loading" style="display:none;">Logging in...</div>
+  <div id="error-msg" style="color:red;"></div>
+</div>
+   
+</body>
+</html>

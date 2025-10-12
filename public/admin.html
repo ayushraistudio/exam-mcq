@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Exam Portal</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script src="admin.js" defer></script>
+</head>
+<body>
+<h1>Admin Panel - Exam Portal</h1>
+
+<div class="admin-section">
+
+  <h2>Add New Student</h2>
+  <input type="text" id="studentEmail" placeholder="Student Email">
+  <input type="password" id="studentPassword" placeholder="Student Password">
+  <button id="addStudentBtn">Add Student</button>
+  <div id="addStudentMsg" style="color:green;"></div>
+
+  <hr>
+
+  <h2>Add Question</h2>
+  <input type="text" id="questionText" placeholder="Enter question">
+  <input type="text" id="optionA" placeholder="Option A">
+  <input type="text" id="optionB" placeholder="Option B">
+  <input type="text" id="optionC" placeholder="Option C">
+  <input type="text" id="optionD" placeholder="Option D">
+  <select id="correctOption">
+    <option value="">Select Correct Option</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+  <button id="addQuestionBtn">Add Question</button>
+  <div id="addQuestionMsg" style="color:green;"></div>
+
+  <hr>
+
+  <h2>Exam Controls</h2>
+  <button id="startExamBtn">Start Exam</button>
+  <button id="endExamBtn">End Exam</button>
+  <div id="examStatusMsg" style="color:blue;"></div>
+
+  <hr>
+
+  <h2>Leaderboard</h2>
+  <table border="1" id="leaderboardTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboardBody">
+      <!-- Leaderboard data populated here -->
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
