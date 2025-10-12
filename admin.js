@@ -8,10 +8,12 @@ const firebaseConfig = {
     appId: "1:783160042929:web:f0a19a6ce1333c5af10990"
 };
 
+
 // 🔹 Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
+
 
 // 🔹 Add Student
 document.getElementById('addStudentBtn').addEventListener('click', async () => {
@@ -41,6 +43,7 @@ document.getElementById('addStudentBtn').addEventListener('click', async () => {
         msg.textContent = error.message;
     }
 });
+
 
 // 🔹 Add Question
 document.getElementById('addQuestionBtn').addEventListener('click', async () => {
@@ -82,6 +85,7 @@ document.getElementById('addQuestionBtn').addEventListener('click', async () => 
     }
 });
 
+
 // 🔹 Exam Controls
 const examStatusMsg = document.getElementById('examStatusMsg');
 
@@ -99,6 +103,7 @@ document.getElementById('startExamBtn').addEventListener('click', async () => {
     }
 });
 
+
 document.getElementById('endExamBtn').addEventListener('click', async () => {
     try {
         // 1️⃣ Update exam status
@@ -113,13 +118,22 @@ document.getElementById('endExamBtn').addEventListener('click', async () => {
         questionsSnapshot.forEach(doc => batch.delete(doc.ref));
         await batch.commit();
 
+        // 3️⃣ Reset all scores in answers collection to zero
+        const answersSnapshot = await db.collection('answers').get();
+        const batchAnswers = db.batch();
+        answersSnapshot.forEach(doc => {
+            batchAnswers.update(doc.ref, { score: 0 });
+        });
+        await batchAnswers.commit();
+
         examStatusMsg.style.color = "green";
-        examStatusMsg.textContent = "Exam ended and questions cleared successfully!";
+        examStatusMsg.textContent = "Exam ended, questions cleared, and leaderboard reset!";
     } catch (error) {
         examStatusMsg.style.color = "red";
         examStatusMsg.textContent = error.message;
     }
 });
+
 
 // 🔹 Load Leaderboard
 async function loadLeaderboard() {
