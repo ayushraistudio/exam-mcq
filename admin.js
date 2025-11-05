@@ -15,7 +15,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 
-// 🔹 Add Student
+// 🔹 Add  Student
 document.getElementById('addStudentBtn').addEventListener('click', async () => {
     const email = document.getElementById('studentEmail').value;
     const password = document.getElementById('studentPassword').value;
