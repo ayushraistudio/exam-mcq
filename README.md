@@ -3,8 +3,8 @@
 A secure **Online Exam Portal** with **Admin & Student panels**, built using **HTML, CSS, JavaScript, and Firebase**.  
 Designed for conducting MCQ-based exams/competitions with real-time control, strict authentication, and automatic evaluation.
 
-🌐 **Live Demo:** https://exam-porta.netlify.app  
-📦 **GitHub Repository:** https://github.com/ayushraistudio/exam-porta
+🌐 **Live Demo:** https://exam-mcq.netlify.app  
+📦 **GitHub Repository:** https://github.com/ayushraistudio/exam
 
 ## 🚀 Features
 
